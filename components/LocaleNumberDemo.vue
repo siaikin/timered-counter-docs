@@ -2,10 +2,14 @@
 // #region js
 import {onMounted, ref, watch} from "vue";
 import LocaleSelect from "./LocaleSelect.vue";
+import {inBrowser} from "vitepress";
 
 const number = ref(114514);
 
-const locale = ref(navigator.language);
+const locale = ref('en-US');
+if (inBrowser) {
+  locale.value = navigator.language;
+}
 
 onMounted(() => watch([number, locale], update, { immediate: true }));
 function update() {

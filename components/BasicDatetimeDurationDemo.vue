@@ -60,11 +60,11 @@ function update() {
         v-model="precision[0]"
       >
         <option
-          v-for="precision in durationPartTypes"
-          :key="precision"
-          :value="precision"
+          v-for="partType in durationPartTypes"
+          :key="partType"
+          :value="partType"
         >
-          {{ precision }}
+          {{ partType }}
         </option>
       </select>
       ~
@@ -73,15 +73,15 @@ function update() {
         v-model="precision[1]"
       >
         <option
-          v-for="precision in durationPartTypes.filter(
+          v-for="partType in durationPartTypes.filter(
             (part) =>
               DurationPartMillisecond[part] >=
               DurationPartMillisecond[precision[0]]
           )"
-          :key="precision"
-          :value="precision"
+          :key="partType"
+          :value="partType"
         >
-          {{ precision }}
+          {{ partType }}
         </option>
       </select>
     </label>
