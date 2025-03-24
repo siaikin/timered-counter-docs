@@ -6,7 +6,7 @@ import en from "./en";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "TimeredCounter",
+  title: "Timered Counter",
   head: [["link", { rel: "icon", href: "/favicon.svg" }]],
 
   rewrites: {

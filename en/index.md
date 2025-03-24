@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "TimeredCounter"
+  name: "Timered Counter"
   text: "Make the value change more vivid and natural"
   actions:
     - theme: brand

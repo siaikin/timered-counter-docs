@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "TimeredCounter",
+  title: "Timered Counter",
   description: "Scrolling strings, numbers, and time like a slot machine",
   lang: "en-US",
   themeConfig: {

@@ -10,36 +10,6 @@ const animationOptions = ({ preprocessData }) => {
   let count = 0;
   return preprocessData.map((part) => part.map(() => ({delay: count++ * 100,})));
 };
-onMounted(() => {
-  // counterRef.value.animationOptionsDynamic = animationOptions;
-})
-
-const keyframes = ({ testResults, direction }) => {
-  return testResults.map((part) =>
-    part.map((digit) => {
-      if (!digit.animate) return;
-      return {
-        up: {
-          transform: [
-            "translateY(0)",
-            "translateY(0)",
-            "translateY(-100%)",
-            "translateY(-100%)",
-          ],
-        },
-        down: {
-          transform: [
-            "translateY(0)",
-            "translateY(0)",
-            "translateY(100%)",
-            "translateY(100%)",
-          ],
-        },
-      }[direction];
-    })
-  );
-};
-
 </script>
 
 <template>

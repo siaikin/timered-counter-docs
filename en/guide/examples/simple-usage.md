@@ -61,7 +61,7 @@ I believe you have seen many countdowns, but most of them change abruptly withou
 Have you seen the moving title on the [homepage](/)? Such an effect can make your static web page more dynamic.
 
 ::: tip
-Please note that the default configuration supports a maximum of **17** characters. If you need more characters, please refer to [how to remove the character length limit](../optional-dependencies.md#how-to-remove-character-length-limit).
+Please note that the default configuration supports a maximum of **14～15** characters. If you need more characters, please refer to [how to remove the character length limit](../optional-dependencies.md#how-to-remove-character-length-limit).
 :::
 
 <DemoContainer title="Scrolling Strings">

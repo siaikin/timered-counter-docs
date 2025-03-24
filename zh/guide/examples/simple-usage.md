@@ -61,7 +61,7 @@ TimeredCounter 提供了下列组件，他们用于滚动不同类型的数据�
 看到[首页](/)上那个会动的标题了吗？在静态网页上，这样的效果会让你的页面更加生动。
 
 ::: tip
-请注意，默认配置下最长支持 **17** 个字符。如果你需要更多的字符长度，请参阅[如何解除字符长度限制](../optional-dependencies.md#how-to-remove-character-length-limit)。
+请注意，默认配置下最长支持 **14～15** 个字符。如果你需要更多的字符长度，请参阅[如何解除字符长度限制](../optional-dependencies.md#how-to-remove-character-length-limit)。
 :::
 
 <DemoContainer title="字符串滚动">

@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "TimeredCounter",
+  title: "Timered Counter",
   description: "像老虎机一样的滚动字符串，数字和时间",
   lang: "zh-CN",
   themeConfig: {

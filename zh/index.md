@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "TimeredCounter"
+  name: "Timered Counter"
   text: "使数值变化更加生动自然"
   #    text: "Make the value change more vivid and natural"
   actions:
