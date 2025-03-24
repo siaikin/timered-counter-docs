@@ -27,8 +27,8 @@ export default defineConfig({
     search: {
       provider: "algolia",
       options: {
-        appId: "9NV3G9B3HR",
-        apiKey: "038b34dc39e8d6c3f0210032459db0e8",
+        appId: "0G957HAYXU",
+        apiKey: "667fc8a81c99ebf4d07240a6a4fae048",
         indexName: "timered-counter",
       },
     },
