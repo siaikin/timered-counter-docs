@@ -32,9 +32,7 @@ TimeredCounter 目前有两个可选的依赖项，考虑到它们的体积较�
   ![npm bundle size](https://img.shields.io/bundlephobia/min/grapheme-splitter?style=flat-square)
   :::
 
-## 注册/引入组件 {#register-import}
-
-### 通过模块引入 {#import-via-module}
+## 通过模块引入 {#import-via-module}
 
 ::: code-group
 ```javascript [main.js/main.ts]
@@ -42,30 +40,55 @@ import "timered-counter";
 ```
 :::
 
-### 通过 CDN 引入 {#import-via-cdn}
+## 通过 CDN 引入 {#import-via-cdn}
 
-未完成
+你可以借助 `<script>` 标签直接通过 CDN 使用 TimeredCounter：
 
+::: code-group
+```html [unpkg]
+<script src="https://unpkg.com/timered-counter/dist/timered-counter.global.js"></script>
+```
+```html [jsdelivr]
+<script src="https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.global.js"></script>
+```
+:::
 
-[//]: # (### 局部引入 {#local-import})
+这里我们使用了 unpkg，但你也可以使用任何提供 npm 包服务的 CDN，例如 [jsdelivr](https://www.jsdelivr.com/package/npm/vue) 或 [cdnjs](https://cdnjs.com/libraries/vue)。当然，你也可以下载此文件并自行提供服务。
 
-[//]: # ()
-[//]: # (```vue)
+通过 CDN 使用 TimeredCounter 时，不涉及“构建步骤”。这使得设置更加简单，并且可以用于增强静态的 HTML。
 
-[//]: # (<script setup>)
+### 使用全局构建版本 {#global-build}
+上面的链接使用了全局构建版本的 TimeredCounter，该版本的所有顶层 API 都以属性的形式暴露在了全局的 TimeredCounter 对象上。这里有一个使用全局构建版本的例子：
 
-[//]: # (import { TimeredCounter } from "timered-counter";)
+```html
+...
+<script src="https://unpkg.com/timered-counter/dist/timered-counter.global.js"></script>
+<script>
+  const { setNumberAdapter } = TimeredCounter;
+  setNumberAdapter('decimal.js')
+</script>
 
-[//]: # (</script>)
+<div style="font-size: 36px; text-align: center;">
+  <timered-counter-string value="9007199254741001" initial-value="24"></timered-counter-string>
+</div>
+```
 
-[//]: # ()
-[//]: # (<template>)
+### 使用 ES 模块构建版本 {#es-module-build}
+在本文档的其余部分我们使用的主要是 ES 模块语法。现代浏览器大多都已原生支持 ES 模块。因此我们可以像这样通过 CDN 以及原生 ES 模块使用 TimeredCounter：
 
-[//]: # (  <TimeredCounter />)
+```html
+...
+<script type="module">
+  import { setNumberAdapter } from "https://unpkg.com/timered-counter/dist/timered-counter.esm-browser.js";
 
-[//]: # (</template>)
+  setNumberAdapter('decimal.js')
+</script>
 
-[//]: # (```)
+<div id="demo" style="font-size: 36px; text-align: center;">
+  <timered-counter-string value="9007199254741001" initial-value="24"></timered-counter-string>
+</div>
+```
+注意我们使用了 `<script type="module">`，且导入的 CDN URL 指向的是 TimeredCounter 的 ES 模块构建版本。
 
 ## 用法 {#usage}
 
