@@ -8,3 +8,12 @@
   --vp-c-brand-3: var(--vp-c-red-3);
   --vp-c-brand-soft: var(--vp-c-red-soft);
 }
+
+api-viewer {
+  margin: 32px;
+  --ave-primary-color: var(--vp-c-brand-1);
+  --ave-secondary-color: var(--vp-c-brand-2);
+  --ave-border-radius: 0;
+
+  max-width: unset;
+}

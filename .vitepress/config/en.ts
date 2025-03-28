@@ -70,8 +70,8 @@ export default defineConfig({
           },
         ],
       },
-      "/reference/": {
-        base: "/reference/",
+      "/en/reference/": {
+        base: "/en/reference/",
         items: [
           {
             collapsed: false,

@@ -4,6 +4,7 @@
   "main": "index.js",
   "devDependencies": {
     "@types/markdown-it-footnote": "^3.0.4",
+    "api-viewer-element": "^1.0.0-pre.10",
     "autoprefixer": "^10.4.20",
     "filesize": "^10.1.6",
     "glob": "^11.0.1",

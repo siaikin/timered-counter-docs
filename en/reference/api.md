@@ -1,26 +1,17 @@
-[//]: # (<script setup>)
+---
+layout: page
+---
 
-[//]: # (import ComponentPropsTable from "../../components/ComponentPropsTable.vue";)
+<script setup>
+import customElementsJson from '../../node_modules/timered-counter/custom-elements.json'; 
 
-[//]: # (</script>)
+if (!import.meta.env.SSR) {
+  import('api-viewer-element')
+    .then(() => {
+      const apiViewer = document.querySelector('api-viewer');
+      apiViewer.manifest = customElementsJson;
+    });
+}
+</script>
 
-[//]: # ()
-[//]: # (# Components)
-
-[//]: # ()
-[//]: # (## VueToCounterNumber)
-
-[//]: # ()
-[//]: # (<ComponentPropsTable name="VueToCounterNumber" />)
-
-[//]: # ()
-[//]: # (## VueToCounterString)
-
-[//]: # ()
-[//]: # (<ComponentPropsTable name="VueToCounterString" />)
-
-[//]: # ()
-[//]: # (## VueToCounterDatetimeDuration)
-
-[//]: # ()
-[//]: # (<ComponentPropsTable name="VueToCounterDatetimeDuration" />)
+<api-viewer></api-viewer>
