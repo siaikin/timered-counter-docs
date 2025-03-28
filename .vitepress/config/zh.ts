@@ -71,7 +71,7 @@ export default defineConfig({
 
     editLink: {
       pattern:
-        "https://github.com/siaikin/timered-counter/edit/main/packages/docs/:path",
+        "https://github.com/siaikin/timered-counter-docs/edit/main/:path",
       text: "在 GitHub 上编辑此页",
     },
   },
