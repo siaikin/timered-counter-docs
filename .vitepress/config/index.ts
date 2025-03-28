@@ -8,7 +8,17 @@ import {timeredCounterCdnFileSize} from "./timered-counter-cdn-file-size.ts";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Timered Counter",
-  head: [["link", { rel: "icon", href: "/favicon.svg" }]],
+  head: [
+    [
+      "script",
+      {
+        defer: "true",
+        src: "https://cloud.umami.is/script.js",
+        "data-website-id": "91020e69-95c4-4a5c-9d8a-270ac84cb649"
+      }
+    ],
+    ["link", { rel: "icon", href: "/favicon.svg" }]
+  ],
 
   rewrites: {
     "zh/:rest*": ":rest*",
