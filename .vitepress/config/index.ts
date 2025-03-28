@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 import Footnote from "markdown-it-footnote";
 import zh from "./zh";
 import en from "./en";
+import {timeredCounterCdnFileSize} from "./timered-counter-cdn-file-size.ts";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -39,13 +40,14 @@ export default defineConfig({
     },
   },
   vite: {
+    define: {
+      __TIMED_COUNTER_CDN_FILE_SIZE__: JSON.stringify(await timeredCounterCdnFileSize()),
+    },
     resolve: {
       alias: [
         {
           find: /^.*\/VPHero\.vue$/,
           replacement: fileURLToPath(
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            //@ts-expect-error
             new URL("../theme/CustomHero.vue", import.meta.url)
           ),
         },

@@ -1,42 +1,64 @@
 # 快速开始 {#getting-started}
 
-## 安装 {#installation}
-
-### 前置准备 {#prerequisites}
-
-::: code-group
-
-```shell [npm]
-$ npm install timered-counter --save
-```
-
-```shell [pnpm]
-$ pnpm add timered-counter
-```
-
-```shell [yarn]
-$ yarn add timered-counter
-```
-
-:::
 
 ::: tip 注意
 TimeredCounter 目前有两个可选的依赖项，考虑到它们的体积较大，所以默认情况下不会被安装。你可以根据需要手动安装它们。
 
-- **decimal.js**: Decimal.js 提供了近乎无限制的精度，用于处理大数/高精度浮点数计算。[什么时候需要使用它](optional-dependencies#character-length-limit)
+- **decimal.js**: Decimal.js 提供了近乎无限制的精度，用于处理大数/高精度浮点数计算。[如何使用 ->](optional-dependencies#character-length-limit)
+- **grapheme-splitter**: grapheme-splitter 可以正确地分割包含 emoji 的字符串。[如何使用 ->](optional-dependencies.md#support-emoji-segmentation)
 
-  ![npm bundle size](https://img.shields.io/bundlephobia/min/decimal.js?style=flat-square)
-
-- **grapheme-splitter**: grapheme-splitter 可以正确地分割包含 emoji 的字符串。[什么时候需要使用它](optional-dependencies.md#support-emoji-segmentation)
-
-  ![npm bundle size](https://img.shields.io/bundlephobia/min/grapheme-splitter?style=flat-square)
-  :::
+**在下方的每种使用方式中，我们都会提供如何安装这两个依赖的方法。**
+:::
 
 ## 通过模块引入 {#import-via-module}
 
+### 安装 {#installation}
 ::: code-group
-```javascript [main.js/main.ts]
+```shell [npm]
+$ npm install timered-counter --save
+```
+```shell [pnpm]
+$ pnpm add timered-counter
+```
+```shell [yarn]
+$ yarn add timered-counter
+```
+:::
+
+### 引入 {#import}
+
+```javascript
 import "timered-counter";
+```
+
+#### 可选依赖
+::: details 安装 `decimal.js` 数字适配器
+如果你需要使用基于 `decimal.js` 的数字适配器，请先安装它：
+```shell
+npm install decimal.js --save
+```
+然后在你的代码中引入：
+```javascript
+import DecimalJsAdapter from "timered-counter/dist/src/number-adapter/decimal.js";
+import { TimeredCounterAdapter } from "timered-counter";
+
+TimeredCounterAdapter.registryAdapter(DecimalJsAdapter); // 注册适配器
+TimeredCounterAdapter.setNumberAdapter('decimal.js'); // 设置使用的适配器
+```
+:::
+
+::: details 安装 `grapheme-splitter` 字符串适配器
+如果你需要使用基于 `grapheme-splitter` 的字符串适配器，请先安装它：
+```shell
+npm install grapheme-splitter --save
+```
+然后在你的代码中引入：
+```javascript
+import GraphemeSplitterAdapter from "timered-counter/dist/src/string-adapter/grapheme-splitter.js";
+import { TimeredCounterAdapter } from "timered-counter";
+
+TimeredCounterAdapter.registryAdapter(GraphemeSplitterAdapter); // 注册适配器
+TimeredCounterAdapter.setStringAdapter('grapheme-splitter'); // 设置使用的适配器
 ```
 :::
 
@@ -44,16 +66,11 @@ import "timered-counter";
 
 你可以借助 `<script>` 标签直接通过 CDN 使用 TimeredCounter：
 
-::: code-group
-```html [unpkg]
-<script src="https://unpkg.com/timered-counter/dist/timered-counter.global.js"></script>
-```
-```html [jsdelivr]
+```html
 <script src="https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.global.js"></script>
 ```
-:::
 
-这里我们使用了 unpkg，但你也可以使用任何提供 npm 包服务的 CDN，例如 [jsdelivr](https://www.jsdelivr.com/package/npm/vue) 或 [cdnjs](https://cdnjs.com/libraries/vue)。当然，你也可以下载此文件并自行提供服务。
+这里我们使用了 [jsdelivr](https://jsdelivr.com)，但你也可以使用任何提供 npm 包服务的 CDN，例如 [unpkg](https://unpkg.com/timered-counter) 或 [cdnjs](https://cdnjs.com/libraries/timered-counter)。当然，你也可以下载此文件并自行提供服务。
 
 通过 CDN 使用 TimeredCounter 时，不涉及“构建步骤”。这使得设置更加简单，并且可以用于增强静态的 HTML。
 
@@ -62,33 +79,107 @@ import "timered-counter";
 
 ```html
 ...
-<script src="https://unpkg.com/timered-counter/dist/timered-counter.global.js"></script>
-<script>
-  const { setNumberAdapter } = TimeredCounter;
-  setNumberAdapter('decimal.js')
-</script>
+<script src="https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.global.js"></script>
 
 <div style="font-size: 36px; text-align: center;">
-  <timered-counter-string value="9007199254741001" initial-value="24"></timered-counter-string>
+  <timered-counter-string value="123456789" initial-value="0"></timered-counter-string>
 </div>
 ```
+
+#### 可选依赖
+::: details 添加 `decimal.js` 数字适配器
+如果你需要使用基于 `decimal.js` 的数字适配器，请先添加下列 `<script>` 标签：
+```html
+<script src="https://cdn.jsdelivr.net/npm/timered-counter/dist/decimal-js-number-adapter.global.js"></script>
+```
+然后在你的代码中引入：
+```javascript
+TimeredCounter.TimeredCounterAdapter.registryAdapter(TimeredCounterExternal.DecimalJsNumberAdapter); // 注册适配器
+TimeredCounter.TimeredCounterAdapter.setNumberAdapter('decimal.js'); // 设置使用的适配器
+```
+:::
+
+::: details 添加 `grapheme-splitter` 字符串适配器
+如果你需要使用基于 `grapheme-splitter` 的字符串适配器，请先安装它：
+```html
+<script src="https://cdn.jsdelivr.net/npm/timered-counter/dist/grapheme-splitter-string-adapter.global.js"></script>
+```
+然后在你的代码中引入：
+```javascript
+TimeredCounter.TimeredCounterAdapter.registryAdapter(TimeredCounterExternal.GraphemeSplitterAdapter); // 注册适配器
+TimeredCounter.TimeredCounterAdapter.setNumberAdapter('grapheme-splitter'); // 设置使用的适配器
+```
+:::
+
+::: details 文件体积
+<div class="text-nowrap">
+
+| 文件名                       | raw                                                  | gzip             | brotli           | deflate          |
+|---------------------------|------------------------------------------------------|------------------|------------------|------------------|
+| timered-counter.global.js  | {{ filesize(umd['timered-counter.global.js'].raw) }} | {{ filesize(umd['timered-counter.global.js'].gzip) }} | {{ filesize(umd['timered-counter.global.js'].brotli) }} | {{ filesize(umd['timered-counter.global.js'].deflate) }} |
+| decimal-js-number-adapter.global.js  | {{ filesize(umd['decimal-js-number-adapter.global.js'].raw) }} | {{ filesize(umd['decimal-js-number-adapter.global.js'].gzip) }} | {{ filesize(umd['decimal-js-number-adapter.global.js'].brotli) }} | {{ filesize(umd['decimal-js-number-adapter.global.js'].deflate) }} |
+| grapheme-splitter-string-adapter.global.js | {{ filesize(umd['grapheme-splitter-string-adapter.global.js'].raw) }} | {{ filesize(umd['grapheme-splitter-string-adapter.global.js'].gzip) }} | {{ filesize(umd['grapheme-splitter-string-adapter.global.js'].brotli) }} | {{ filesize(umd['grapheme-splitter-string-adapter.global.js'].deflate) }} |
+
+</div>
+:::
 
 ### 使用 ES 模块构建版本 {#es-module-build}
 在本文档的其余部分我们使用的主要是 ES 模块语法。现代浏览器大多都已原生支持 ES 模块。因此我们可以像这样通过 CDN 以及原生 ES 模块使用 TimeredCounter：
 
 ```html
 ...
-<script type="module">
-  import { setNumberAdapter } from "https://unpkg.com/timered-counter/dist/timered-counter.esm-browser.js";
-
-  setNumberAdapter('decimal.js')
-</script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.esm-browser.js"></script>
 
 <div id="demo" style="font-size: 36px; text-align: center;">
-  <timered-counter-string value="9007199254741001" initial-value="24"></timered-counter-string>
+  <timered-counter-string value="123456789" initial-value="0"></timered-counter-string>
 </div>
 ```
 注意我们使用了 `<script type="module">`，且导入的 CDN URL 指向的是 TimeredCounter 的 ES 模块构建版本。
+
+
+#### 可选依赖
+::: details 添加 `decimal.js` 数字适配器
+如果你需要使用基于 `decimal.js` 的数字适配器，请根据下列代码进行修改：
+```html
+<script src="https://cdn.jsdelivr.net/npm/timered-counter/dist/decimal-js-number-adapter.esm-browser.js"></script> <!--[!code --]-->
+
+<script type="module">
+  import { TimeredCounterAdapter } from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.esm-browser.js'; // [!code ++]
+  import DecimalJsNumberAdapter from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/decimal-js-number-adapter.esm-browser.js'; // [!code ++]
+// [!code ++]
+  TimeredCounterAdapter.registryAdapter(DecimalJsNumberAdapter); // [!code ++]
+  TimeredCounterAdapter.setNumberAdapter('decimal.js'); // [!code ++]
+</script>
+```
+:::
+
+::: details 添加 `grapheme-splitter` 字符串适配器
+如果你需要使用基于 `grapheme-splitter` 的字符串适配器，请根据下列代码进行修改：
+```html
+<script src="https://cdn.jsdelivr.net/npm/timered-counter/dist/decimal-js-number-adapter.esm-browser.js"></script> <!--[!code --]-->
+
+<script type="module">
+  import { TimeredCounterAdapter } from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.esm-browser.js'; // [!code ++]
+  import GraphemeSplitterStringAdapter from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/grapheme-splitter-string-adapter.esm-browser.js'; // [!code ++]
+// [!code ++]
+  TimeredCounterAdapter.registryAdapter(GraphemeSplitterStringAdapter); // [!code ++]
+  TimeredCounterAdapter.setStringAdapter('grapheme-splitter'); // [!code ++]
+</script>
+```
+:::
+
+::: details 文件体积
+<div class="text-nowrap">
+
+| 文件名                       | raw                                                                   | gzip             | brotli           | deflate          |
+|---------------------------|-----------------------------------------------------------------------|------------------|------------------|------------------|
+| timered-counter.esm-browser.js  | {{ filesize(esm['timered-counter.esm-browser.js'].raw) }}             | {{ filesize(esm['timered-counter.esm-browser.js'].gzip) }} | {{ filesize(esm['timered-counter.esm-browser.js'].brotli) }} | {{ filesize(esm['timered-counter.esm-browser.js'].deflate) }} |
+| decimal-js-number-adapter.esm-browser.js  | {{ filesize(esm['decimal-js-number-adapter.esm-browser.js'].raw) }} | {{ filesize(esm['decimal-js-number-adapter.esm-browser.js'].gzip) }} | {{ filesize(esm['decimal-js-number-adapter.esm-browser.js'].brotli) }} | {{ filesize(esm['decimal-js-number-adapter.esm-browser.js'].deflate) }} |
+| grapheme-splitter-string-adapter.esm-browser.js | {{ filesize(esm['grapheme-splitter-string-adapter.esm-browser.js'].raw) }} | {{ filesize(esm['grapheme-splitter-string-adapter.esm-browser.js'].gzip) }} | {{ filesize(esm['grapheme-splitter-string-adapter.esm-browser.js'].brotli) }} | {{ filesize(esm['grapheme-splitter-string-adapter.esm-browser.js'].deflate) }} |
+
+</div>
+:::
+
 
 ## 用法 {#usage}
 
@@ -103,7 +194,9 @@ import "timered-counter";
 <script setup>
 import GettingStartedDemo from "../../components/GettingStartedDemo.vue"; 
 import DemoContainer from "../../components/DemoContainer.vue"; 
+import { filesize } from "filesize";
 
+const { umd, esm } = __TIMED_COUNTER_CDN_FILE_SIZE__;
 </script>
 
 <DemoContainer title="快速开始">
