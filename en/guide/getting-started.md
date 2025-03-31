@@ -9,58 +9,6 @@ TimeredCounter currently has two optional dependencies. Considering their large 
 **In each usage method below, we will provide instructions on how to install these two dependencies.**
 :::
 
-## Import via Module {#import-via-module}
-
-### Installation {#installation}
-::: code-group
-```shell [npm]
-$ npm install timered-counter --save
-```
-```shell [pnpm]
-$ pnpm add timered-counter
-```
-```shell [yarn]
-$ yarn add timered-counter
-```
-:::
-
-### Import {#import}
-
-```javascript
-import "timered-counter";
-```
-
-#### Optional Dependencies
-::: details Install `decimal.js` Number Adapter
-If you need to use the `decimal.js` based number adapter, please install it first:
-```shell
-npm install decimal.js --save
-```
-Then import it in your code:
-```javascript
-import DecimalJsAdapter from "timered-counter/dist/src/number-adapter/decimal.js";
-import { TimeredCounterAdapter } from "timered-counter";
-
-TimeredCounterAdapter.registryAdapter(DecimalJsAdapter); // Register adapter
-TimeredCounterAdapter.setNumberAdapter('decimal.js'); // Set the adapter to use
-```
-:::
-
-::: details Install `grapheme-splitter` String Adapter
-If you need to use the `grapheme-splitter` based string adapter, please install it first:
-```shell
-npm install grapheme-splitter --save
-```
-Then import it in your code:
-```javascript
-import GraphemeSplitterAdapter from "timered-counter/dist/src/string-adapter/grapheme-splitter.js";
-import { TimeredCounterAdapter } from "timered-counter";
-
-TimeredCounterAdapter.registryAdapter(GraphemeSplitterAdapter); // Register adapter
-TimeredCounterAdapter.setStringAdapter('grapheme-splitter'); // Set the adapter to use
-```
-:::
-
 ## Import via CDN {#import-via-cdn}
 
 You can use TimeredCounter directly via CDN with the `<script>` tag:
@@ -176,6 +124,58 @@ If you need to use the `grapheme-splitter` based string adapter, please modify t
 | grapheme-splitter-string-adapter.esm-browser.js | {{ filesize(esm['grapheme-splitter-string-adapter.esm-browser.js'].raw) }} | {{ filesize(esm['grapheme-splitter-string-adapter.esm-browser.js'].gzip) }} | {{ filesize(esm['grapheme-splitter-string-adapter.esm-browser.js'].brotli) }} | {{ filesize(esm['grapheme-splitter-string-adapter.esm-browser.js'].deflate) }} |
 
 </div>
+:::
+
+## Import via Module {#import-via-module}
+
+### Installation {#installation}
+::: code-group
+```shell [npm]
+$ npm install timered-counter --save
+```
+```shell [pnpm]
+$ pnpm add timered-counter
+```
+```shell [yarn]
+$ yarn add timered-counter
+```
+:::
+
+### Import {#import}
+
+```javascript
+import "timered-counter";
+```
+
+#### Optional Dependencies
+::: details Install `decimal.js` Number Adapter
+If you need to use the `decimal.js` based number adapter, please install it first:
+```shell
+npm install decimal.js --save
+```
+Then import it in your code:
+```javascript
+import DecimalJsAdapter from "timered-counter/dist/src/number-adapter/decimal.js";
+import { TimeredCounterAdapter } from "timered-counter";
+
+TimeredCounterAdapter.registryAdapter(DecimalJsAdapter); // Register adapter
+TimeredCounterAdapter.setNumberAdapter('decimal.js'); // Set the adapter to use
+```
+:::
+
+::: details Install `grapheme-splitter` String Adapter
+If you need to use the `grapheme-splitter` based string adapter, please install it first:
+```shell
+npm install grapheme-splitter --save
+```
+Then import it in your code:
+```javascript
+import GraphemeSplitterAdapter from "timered-counter/dist/src/string-adapter/grapheme-splitter.js";
+import { TimeredCounterAdapter } from "timered-counter";
+
+TimeredCounterAdapter.registryAdapter(GraphemeSplitterAdapter); // Register adapter
+TimeredCounterAdapter.setStringAdapter('grapheme-splitter'); // Set the adapter to use
+```
 :::
 
 ## Usage {#usage}
