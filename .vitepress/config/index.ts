@@ -4,6 +4,7 @@ import Footnote from "markdown-it-footnote";
 import zh from "./zh";
 import en from "./en";
 import {timeredCounterCdnFileSize} from "./timered-counter-cdn-file-size.ts";
+import llmstxt from 'vitepress-plugin-llms'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -50,6 +51,7 @@ export default defineConfig({
     },
   },
   vite: {
+    plugins: [llmstxt()],
     define: {
       __TIMED_COUNTER_CDN_FILE_SIZE__: JSON.stringify(await timeredCounterCdnFileSize()),
     },
