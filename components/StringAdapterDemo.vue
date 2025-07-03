@@ -26,7 +26,6 @@ const counterRef = ref();
 function handleAnimationEnd() {
   realRenderString.value = counterRef.value?.getAttribute("aria-label");
 }
-onMounted(() => setTimeout(() => handleAnimationEnd(), 1000));
 </script>
 
 <template>

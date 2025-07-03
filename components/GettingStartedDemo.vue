@@ -1,10 +1,14 @@
 <script setup lang="ts">
 // #region js
-import { ref } from "vue";
+import {onMounted, ref} from "vue";
 let userCount = ref(1000);
-setInterval(() => {
-  userCount.value += Math.floor(Math.random() * 10);
-}, 1100);
+
+// https://github.com/vuejs/vitepress/issues/562#issuecomment-1106061640
+onMounted(() => {
+  setInterval(() => {
+    userCount.value += Math.floor(Math.random() * 10);
+  }, 1100)
+});
 // #endregion js
 </script>
 

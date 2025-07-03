@@ -3,7 +3,7 @@ import { defineConfig } from "vitepress";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Timered Counter",
-  description: "拥有流畅动画的计数器组件。",
+  description: "拥有流畅动画的计数器 Web Component 组件。",
   lang: "zh-CN",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

@@ -3,7 +3,7 @@ import { defineConfig } from "vitepress";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Timered Counter",
-  description: "A counter component with smooth animations.",
+  description: "A counter web component with smooth animations.",
   lang: "en-US",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
