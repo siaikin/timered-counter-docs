@@ -3,7 +3,7 @@ import { defineConfig } from "vitepress";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Timered Counter",
-  description: "Scrolling strings, numbers, and time like a slot machine",
+  description: "A counter component with smooth animations.",
   lang: "en-US",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -25,6 +25,16 @@ export default defineConfig({
                 link: "what-is-timered-counter",
               },
               { text: "Getting Started", link: "getting-started" },
+            ],
+          },
+          {
+            collapsed: false,
+            text: "Framework Integration",
+            items: [
+              {
+                text: "Vue",
+                link: "integration/vue",
+              },
             ],
           },
           {

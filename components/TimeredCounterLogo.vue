@@ -18,16 +18,16 @@ const keyframes = {
 
 <template>
   <div class="text-center">
-    <timered-counter-string
+    <TimeredCounterString
       class="timered-counter-logo font-bold !text-6xl border-[#7a7374] rounded border-8"
       color="#ed556a"
       value="0A文"
-      style="font-family: &quot;PingFang SC&quot;, sans-serif"
+      style="font-family: 'PingFang SC', sans-serif"
       initial-value="012"
-      :keyframes.prop="keyframes"
-      :partsOptions.prop="{ sampleCount: 2 }"
-      :animationOptions.prop="animationOptions"
-      :cellStyles.prop="
+      :keyframes="keyframes"
+      :parts-options="{ sampleCount: 2 }"
+      :animation-options="animationOptions"
+      :cell-styles="
         ({ data, direction }) => {
           return data.map((partData) =>
             partData.digits.map((digit) =>
@@ -44,7 +44,7 @@ const keyframes = {
           );
         }
       "
-      :digitStyles.prop="({ data }) => data.map((partData) =>partData.digits.map((_, index, array) => ({
+      :digit-styles="({ data }) => data.map((partData) =>partData.digits.map((_, index, array) => ({
       /**
       * border-width: 0px;
       *     border-right-width: 8px;
@@ -59,6 +59,47 @@ const keyframes = {
       borderRightColor: 'rgb(122 115 116 / var(--tw-border-opacity, 1))',
       })))"
     />
+<!--    <timered-counter-string-->
+<!--      class="timered-counter-logo font-bold !text-6xl border-[#7a7374] rounded border-8"-->
+<!--      color="#ed556a"-->
+<!--      value="0A文"-->
+<!--      style="font-family: 'PingFang SC', sans-serif"-->
+<!--      initial-value="012"-->
+<!--      :keyframes.prop="keyframes"-->
+<!--      :partsOptions.prop="{ sampleCount: 2 }"-->
+<!--      :animationOptions.prop="animationOptions"-->
+<!--      :cellStyles.prop="-->
+<!--        ({ data, direction }) => {-->
+<!--          return data.map((partData) =>-->
+<!--            partData.digits.map((digit) =>-->
+<!--              digit.data.map((char) =>-->
+<!--                char === '文'-->
+<!--                  ? {-->
+<!--                      fontSize: '0.8em',-->
+<!--                      [direction === 'up' ? 'marginTop' : 'marginBottom']:-->
+<!--                        '6px',-->
+<!--                    }-->
+<!--                  : { margin: '0 4px' }-->
+<!--              )-->
+<!--            )-->
+<!--          );-->
+<!--        }-->
+<!--      "-->
+<!--      :digitStyles.prop="({ data }) => data.map((partData) =>partData.digits.map((_, index, array) => ({-->
+<!--      /**-->
+<!--      * border-width: 0px;-->
+<!--      *     border-right-width: 8px;-->
+<!--      *     border-style: solid;-->
+<!--      *     &#45;&#45;tw-border-opacity: 1;-->
+<!--      *     border-right-color: rgb(122 115 116 / var(&#45;&#45;tw-border-opacity, 1));-->
+<!--*/-->
+<!--      borderWidth: '0px',-->
+<!--      borderRightWidth: index === array.length - 1 ? '0' : '8px',-->
+<!--      borderStyle: 'solid',-->
+<!--      '&#45;&#45;tw-border-opacity': 1,-->
+<!--      borderRightColor: 'rgb(122 115 116 / var(&#45;&#45;tw-border-opacity, 1))',-->
+<!--      })))"-->
+<!--    />-->
   </div>
 </template>
 

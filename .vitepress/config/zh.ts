@@ -3,7 +3,7 @@ import { defineConfig } from "vitepress";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Timered Counter",
-  description: "像老虎机一样的滚动字符串，数字和时间",
+  description: "拥有流畅动画的计数器组件。",
   lang: "zh-CN",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -25,6 +25,16 @@ export default defineConfig({
                 link: "what-is-timered-counter",
               },
               { text: "快速开始", link: "getting-started" },
+            ],
+          },
+          {
+            collapsed: false,
+            text: "框架集成",
+            items: [
+              {
+                text: "Vue",
+                link: "integration/vue",
+              },
             ],
           },
           {

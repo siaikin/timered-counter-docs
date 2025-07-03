@@ -10,23 +10,13 @@ const locale = ref('en-US');
 if (inBrowser) {
   locale.value = navigator.language;
 }
-
-onMounted(() => watch([number, locale], update, { immediate: true }));
-function update() {
-  const _number = number.value;
-  const _locale = locale.value;
-
-  const counter = document.getElementById('locale-number-counter');
-  counter.value = _number;
-  counter.locale = _locale;
-}
 // #endregion js
 </script>
 
 <template>
   <!-- #region html -->
   <div class="text-center">
-    <timered-counter-number id="locale-number-counter" locale-number />
+    <timered-counter-number locale-number :locale="locale" :value="number" />
   </div>
   <hr />
   <div class="flex gap-4">

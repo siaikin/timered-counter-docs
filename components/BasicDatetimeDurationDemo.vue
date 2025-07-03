@@ -17,24 +17,13 @@ const durationPartTypes = ref([
   DurationPartType.Minute,
   DurationPartType.Second,
 ]);
-
-onMounted(() => watch([from, to, precision], update, { immediate: true }));
-function update() {
-  const _from = from.value;
-  const _to = to.value;
-  const _precision = precision.value;
-
-  const counter = document.getElementById('basic-datetime-duration-counter');
-  counter.value = [_from, _to];
-  counter.precision = [..._precision];
-}
 // #endregion js
 </script>
 
 <template>
 <!-- #region html -->
   <div class="text-center">
-    <timered-counter-datetime-duration id="basic-datetime-duration-counter" />
+    <timered-counter-datetime-duration :value="[from, to]" :precision="precision" />
   </div>
   <hr />
   <div class="flex gap-4">

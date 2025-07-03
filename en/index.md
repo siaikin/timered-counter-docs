@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Timered Counter"
-  text: "Make the value change more vivid and natural"
+  text: "A counter component with smooth animations"
   actions:
     - theme: brand
       text: What is TimeredCounter?

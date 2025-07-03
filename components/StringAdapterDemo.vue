@@ -1,6 +1,9 @@
 <script setup>
 import { onMounted, ref, watch } from "vue";
-import { setStringAdapter } from "timered-counter";
+import { setStringAdapter, registerAdapter } from "timered-counter";
+import DecimalJsNumberAdapter from "timered-counter/number-adapter/decimal-js";
+
+registerAdapter(DecimalJsNumberAdapter); // [!code ++]
 
 const string = ref("emoji 🎉 🧑‍💻");
 

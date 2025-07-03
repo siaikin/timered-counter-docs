@@ -11,24 +11,13 @@ const locale = ref('en-US');
 if (inBrowser) {
   locale.value = navigator.language;
 }
-
-onMounted(() => watch([from, to, locale], update, { immediate: true }));
-function update() {
-  const _from = from.value;
-  const _to = to.value;
-  const _locale = locale.value;
-
-  const counter = document.getElementById('locale-datetime-duration-counter');
-  counter.value = [_from, _to];
-  counter.locale = _locale;
-}
 // #endregion js
 </script>
 
 <template>
   <!-- #region html -->
   <div class="text-center">
-    <timered-counter-datetime-duration id="locale-datetime-duration-counter"/>
+    <timered-counter-datetime-duration :locale="locale" :value="[from, to]" />
   </div>
   <hr />
   <div class="flex gap-4">

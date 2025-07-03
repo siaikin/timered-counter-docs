@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Timered Counter"
-  text: "使数值变化更加生动自然"
+  text: "拥有流畅动画的计数器组件"
   #    text: "Make the value change more vivid and natural"
   actions:
     - theme: brand

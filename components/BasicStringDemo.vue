@@ -29,22 +29,13 @@ function switchString() {
   stringIndex = (stringIndex + 1) % strings.length;
   string.value = strings[stringIndex];
 }
-
-onMounted(() => watch([string], update, { immediate: true }));
-function update() {
-  const _string = string.value;
-
-  const counter = document.getElementById('basic-string-counter');
-  counter.value = _string;
-}
-
 // #endregion js
 </script>
 
 <template>
 <!-- #region html -->
   <div class="text-center">
-    <timered-counter-string id="basic-string-counter" value="Hello, World!"  />
+    <timered-counter-string :value="string"  />
   </div>
   <hr />
   <div class="flex gap-4">

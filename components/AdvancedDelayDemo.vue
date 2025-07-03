@@ -12,22 +12,17 @@ function switchNumber() {
 const delay = ref(100);
 const increase = ref(false);
 
-onMounted(() => watch([number, delay, increase,], update, { immediate: true }));
-function update() {
-  const _number = number.value;
+function animationOptions({ preprocessData }) {
   const _delay = delay.value;
   const _increase = increase.value;
 
-  const counter = document.getElementById('advanced-delay-counter');
-  counter.value = _number;
-  counter.animationOptions = ({ preprocessData }) => {
-    if (!_increase) return { delay: _delay };
+  if (!_increase) return { delay: _delay };
 
-    let count = 0;
-    return preprocessData.map((part) =>
-      part.map(() => ({ delay: count++ * _delay }))
-    );
-  };
+  let count = 0;
+  return preprocessData.map((part) =>
+    part.map(() => ({ delay: count++ * _delay }))
+  );
+
 }
 // #endregion increaseDelay
 // #endregion js
@@ -36,7 +31,7 @@ function update() {
 <template>
   <!-- #region html -->
   <div class="text-center">
-    <timered-counter-number id="advanced-delay-counter"/>
+    <timered-counter-number :value="number" :animation-options="animationOptions" />
   </div>
   <hr />
   <div class="flex gap-4">

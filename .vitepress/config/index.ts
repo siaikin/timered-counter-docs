@@ -5,6 +5,7 @@ import zh from "./zh";
 import en from "./en";
 import {timeredCounterCdnFileSize} from "./timered-counter-cdn-file-size.ts";
 import llmstxt from 'vitepress-plugin-llms'
+import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -48,6 +49,7 @@ export default defineConfig({
   markdown: {
     config: (md) => {
       md.use(Footnote);
+      md.use(tabsMarkdownPlugin)
     },
   },
   vite: {
@@ -73,14 +75,6 @@ export default defineConfig({
            */
           api: "modern-compiler",
         },
-      },
-    },
-  },
-  vue: {
-    template: {
-      compilerOptions: {
-        // 将所有带短横线的标签名都视为自定义元素
-        isCustomElement: (tag) => tag.startsWith("timered-"),
       },
     },
   },

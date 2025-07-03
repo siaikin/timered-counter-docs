@@ -14,26 +14,21 @@ const animationOptions = ref({
   easing: "ease",
   duration: 2000,
 });
-
-onMounted(() => watch([number, fontSize, animationOptions], update, { immediate: true }));
-
-function update() {
-  const _number = number.value;
-  const _fontSize = fontSize.value;
-  const _animationOptions = animationOptions.value;
-
-  const counter = document.getElementById('advanced-easing-counter');
-  counter.value = _number;
-  counter.style.fontSize = _fontSize + 'px';
-  counter.animationOptions = _animationOptions;
-}
 // #endregion js
 </script>
 
 <template>
   <!-- #region html -->
   <div class="text-center">
-    <timered-counter-number class="font-bold" id="advanced-easing-counter" style="line-height: 1.2"/>
+    <timered-counter-number
+      class="font-bold"
+      :style="{
+      lineHeight: '1.2',
+      fontSize: `${fontSize}px`,
+    }"
+      :value="number"
+      :animation-options="animationOptions"
+    />
   </div>
   <hr />
   <div class="flex gap-4">

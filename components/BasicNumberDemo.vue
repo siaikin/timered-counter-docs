@@ -1,18 +1,10 @@
 <script setup>
 // #region js
-import {onMounted, ref, watch} from "vue";
+import {ref} from "vue";
 
 const number = ref(114514);
 function switchNumber() {
   number.value = Math.floor(Math.random() * 1000000);
-}
-
-onMounted(() => watch([number], update, { immediate: true }));
-function update() {
-  const _number = number.value;
-
-  const counter = document.getElementById('basic-number-counter');
-  counter.value = _number;
 }
 // #endregion js
 </script>
@@ -20,7 +12,7 @@ function update() {
 <template>
 <!-- #region html -->
   <div class="text-center">
-    <timered-counter-number id="basic-number-counter" initial-value="114511" />
+    <timered-counter-number initial-value="114511" :value="number" />
   </div>
   <hr />
   <div class="flex gap-4">

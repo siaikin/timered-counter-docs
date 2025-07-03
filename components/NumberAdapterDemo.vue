@@ -1,6 +1,9 @@
 <script setup>
 import { ref, watch } from "vue";
-import { setNumberAdapter } from "timered-counter";
+import {setNumberAdapter, registerAdapter} from "timered-counter";
+import GraphemeSplitterStringAdapter from "timered-counter/string-adapter/grapheme-splitter";
+
+registerAdapter(GraphemeSplitterStringAdapter); // [!code ++]
 
 const number = ref(Number.MAX_SAFE_INTEGER.toString(10));
 

@@ -41,8 +41,8 @@ TimeredCounter 目前有两个可选的依赖项，考虑到它们的体积较�
 ```
 然后在你的代码中引入：
 ```javascript
-TimeredCounter.TimeredCounterAdapter.registryAdapter(TimeredCounterExternal.DecimalJsNumberAdapter); // 注册适配器
-TimeredCounter.TimeredCounterAdapter.setNumberAdapter('decimal.js'); // 设置使用的适配器
+TimeredCounter.registerAdapter(TimeredCounterExternal.DecimalJsNumberAdapter); // 注册适配器
+TimeredCounter.setNumberAdapter('decimal.js'); // 设置使用的适配器
 ```
 :::
 
@@ -53,8 +53,8 @@ TimeredCounter.TimeredCounterAdapter.setNumberAdapter('decimal.js'); // 设置�
 ```
 然后在你的代码中引入：
 ```javascript
-TimeredCounter.TimeredCounterAdapter.registryAdapter(TimeredCounterExternal.GraphemeSplitterAdapter); // 注册适配器
-TimeredCounter.TimeredCounterAdapter.setNumberAdapter('grapheme-splitter'); // 设置使用的适配器
+TimeredCounter.registerAdapter(TimeredCounterExternal.GraphemeSplitterStringAdapter); // 注册适配器
+TimeredCounter.setStringAdapter('grapheme-splitter'); // 设置使用的适配器
 ```
 :::
 
@@ -91,11 +91,11 @@ TimeredCounter.TimeredCounterAdapter.setNumberAdapter('grapheme-splitter'); // �
 <script src="https://cdn.jsdelivr.net/npm/timered-counter/dist/decimal-js-number-adapter.esm-browser.js"></script> <!--[!code --]-->
 
 <script type="module">
-  import { TimeredCounterAdapter } from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.esm-browser.js'; // [!code ++]
+  import { registerAdapter, setNumberAdapter } from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.esm-browser.js'; // [!code ++]
   import DecimalJsNumberAdapter from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/decimal-js-number-adapter.esm-browser.js'; // [!code ++]
 // [!code ++]
-  TimeredCounterAdapter.registryAdapter(DecimalJsNumberAdapter); // [!code ++]
-  TimeredCounterAdapter.setNumberAdapter('decimal.js'); // [!code ++]
+  registerAdapter(DecimalJsNumberAdapter); // [!code ++]
+  setNumberAdapter('decimal.js'); // [!code ++]
 </script>
 ```
 :::
@@ -106,11 +106,11 @@ TimeredCounter.TimeredCounterAdapter.setNumberAdapter('grapheme-splitter'); // �
 <script src="https://cdn.jsdelivr.net/npm/timered-counter/dist/decimal-js-number-adapter.esm-browser.js"></script> <!--[!code --]-->
 
 <script type="module">
-  import { TimeredCounterAdapter } from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.esm-browser.js'; // [!code ++]
+  import { registerAdapter, setStringAdapter } from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.esm-browser.js'; // [!code ++]
   import GraphemeSplitterStringAdapter from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/grapheme-splitter-string-adapter.esm-browser.js'; // [!code ++]
 // [!code ++]
-  TimeredCounterAdapter.registryAdapter(GraphemeSplitterStringAdapter); // [!code ++]
-  TimeredCounterAdapter.setStringAdapter('grapheme-splitter'); // [!code ++]
+  registerAdapter(GraphemeSplitterStringAdapter); // [!code ++]
+  setStringAdapter('grapheme-splitter'); // [!code ++]
 </script>
 ```
 :::
@@ -156,11 +156,11 @@ npm install decimal.js --save
 ```
 然后在你的代码中引入：
 ```javascript
-import DecimalJsAdapter from "timered-counter/dist/src/number-adapter/decimal.js";
-import { TimeredCounterAdapter } from "timered-counter";
+import { setNumberAdapter, registerAdapter } from "timered-counter";
+import DecimalJsNumberAdapter from "timered-counter/number-adapter/decimal-js";
 
-TimeredCounterAdapter.registryAdapter(DecimalJsAdapter); // 注册适配器
-TimeredCounterAdapter.setNumberAdapter('decimal.js'); // 设置使用的适配器
+registerAdapter(DecimalJsNumberAdapter); // 注册内置的 decimal.js 适配器
+setNumberAdapter('decimal.js'); // 设置使用的适配器
 ```
 :::
 
@@ -171,11 +171,11 @@ npm install grapheme-splitter --save
 ```
 然后在你的代码中引入：
 ```javascript
-import GraphemeSplitterAdapter from "timered-counter/dist/src/string-adapter/grapheme-splitter.js";
-import { TimeredCounterAdapter } from "timered-counter";
+import { setStringAdapter, registerAdapter } from "timered-counter";
+import GraphemeSplitterStringAdapter from "timered-counter/string-adapter/grapheme-splitter";
 
-TimeredCounterAdapter.registryAdapter(GraphemeSplitterAdapter); // 注册适配器
-TimeredCounterAdapter.setStringAdapter('grapheme-splitter'); // 设置使用的适配器
+registerAdapter(GraphemeSplitterStringAdapter); // 注册内置的 grapheme-splitter 适配器
+setStringAdapter('grapheme-splitter'); // 设置使用的适配器
 ```
 :::
 

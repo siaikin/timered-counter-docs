@@ -13,24 +13,13 @@ const color = ref(
       .toString(16)
       .padStart(6, "0")
 );
-
-onMounted(() => watch([number, color], update, { immediate: true }));
-
-function update() {
-  const _number = number.value;
-  const _color = color.value;
-
-  const counter = document.getElementById('colorful-number-counter');
-  counter.value = _number;
-  counter.color = _color;
-}
 // #endregion js
 </script>
 
 <template>
   <!-- #region html -->
   <div class="text-center">
-    <timered-counter-number id="colorful-number-counter" class="!text-8xl font-bold" />
+    <timered-counter-number class="!text-8xl font-bold" :color="color" :value="number" />
   </div>
   <hr />
   <div class="flex gap-4">

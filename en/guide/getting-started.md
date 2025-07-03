@@ -41,8 +41,8 @@ If you need to use the `decimal.js` based number adapter, please add the followi
 ```
 Then import it in your code:
 ```javascript
-TimeredCounter.TimeredCounterAdapter.registryAdapter(TimeredCounterExternal.DecimalJsNumberAdapter); // Register adapter
-TimeredCounter.TimeredCounterAdapter.setNumberAdapter('decimal.js'); // Set the adapter to use
+TimeredCounter.registerAdapter(TimeredCounterExternal.DecimalJsNumberAdapter); // Register adapter
+TimeredCounter.setNumberAdapter('decimal.js'); // Set the adapter to use
 ```
 :::
 
@@ -53,8 +53,8 @@ If you need to use the `grapheme-splitter` based string adapter, please add the 
 ```
 Then import it in your code:
 ```javascript
-TimeredCounter.TimeredCounterAdapter.registryAdapter(TimeredCounterExternal.GraphemeSplitterAdapter); // Register adapter
-TimeredCounter.TimeredCounterAdapter.setStringAdapter('grapheme-splitter'); // Set the adapter to use
+TimeredCounter.registerAdapter(TimeredCounterExternal.GraphemeSplitterStringAdapter); // Register adapter
+TimeredCounter.setStringAdapter('grapheme-splitter'); // Set the adapter to use
 ```
 :::
 
@@ -90,11 +90,11 @@ If you need to use the `decimal.js` based number adapter, please modify the code
 <script src="https://cdn.jsdelivr.net/npm/timered-counter/dist/decimal-js-number-adapter.esm-browser.js"></script> <!--[!code --]-->
 
 <script type="module">
-  import { TimeredCounterAdapter } from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.esm-browser.js'; // [!code ++]
+  import { registerAdapter, setNumberAdapter } from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.esm-browser.js'; // [!code ++]
   import DecimalJsNumberAdapter from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/decimal-js-number-adapter.esm-browser.js'; // [!code ++]
-// [!code ++]
-  TimeredCounterAdapter.registryAdapter(DecimalJsNumberAdapter); // [!code ++]
-  TimeredCounterAdapter.setNumberAdapter('decimal.js'); // [!code ++]
+  // [!code ++]
+  registerAdapter(DecimalJsNumberAdapter); // [!code ++]
+  setNumberAdapter('decimal.js'); // [!code ++]
 </script>
 ```
 :::
@@ -105,11 +105,11 @@ If you need to use the `grapheme-splitter` based string adapter, please modify t
 <script src="https://cdn.jsdelivr.net/npm/timered-counter/dist/decimal-js-number-adapter.esm-browser.js"></script> <!--[!code --]-->
 
 <script type="module">
-  import { TimeredCounterAdapter } from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.esm-browser.js'; // [!code ++]
+  import { registerAdapter, setStringAdapter } from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/timered-counter.esm-browser.js'; // [!code ++]
   import GraphemeSplitterStringAdapter from 'https://cdn.jsdelivr.net/npm/timered-counter/dist/grapheme-splitter-string-adapter.esm-browser.js'; // [!code ++]
-// [!code ++]
-  TimeredCounterAdapter.registryAdapter(GraphemeSplitterStringAdapter); // [!code ++]
-  TimeredCounterAdapter.setStringAdapter('grapheme-splitter'); // [!code ++]
+  // [!code ++]
+  registerAdapter(GraphemeSplitterStringAdapter); // [!code ++]
+  setStringAdapter('grapheme-splitter'); // [!code ++]
 </script>
 ```
 :::
@@ -155,11 +155,11 @@ npm install decimal.js --save
 ```
 Then import it in your code:
 ```javascript
-import DecimalJsAdapter from "timered-counter/dist/src/number-adapter/decimal.js";
-import { TimeredCounterAdapter } from "timered-counter";
+import { setNumberAdapter, registerAdapter } from "timered-counter";
+import DecimalJsNumberAdapter from "timered-counter/number-adapter/decimal-js";
 
-TimeredCounterAdapter.registryAdapter(DecimalJsAdapter); // Register adapter
-TimeredCounterAdapter.setNumberAdapter('decimal.js'); // Set the adapter to use
+registerAdapter(DecimalJsNumberAdapter); // Register adapter
+setNumberAdapter('decimal.js'); // Set the adapter to use
 ```
 :::
 
@@ -170,11 +170,11 @@ npm install grapheme-splitter --save
 ```
 Then import it in your code:
 ```javascript
-import GraphemeSplitterAdapter from "timered-counter/dist/src/string-adapter/grapheme-splitter.js";
-import { TimeredCounterAdapter } from "timered-counter";
+import { setStringAdapter, registerAdapter } from "timered-counter";
+import GraphemeSplitterStringAdapter from "timered-counter/string-adapter/grapheme-splitter";
 
-TimeredCounterAdapter.registryAdapter(GraphemeSplitterAdapter); // Register adapter
-TimeredCounterAdapter.setStringAdapter('grapheme-splitter'); // Set the adapter to use
+registerAdapter(GraphemeSplitterStringAdapter); // Register adapter
+setStringAdapter('grapheme-splitter'); // Set the adapter to use
 ```
 :::
 
