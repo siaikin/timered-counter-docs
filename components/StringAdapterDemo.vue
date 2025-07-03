@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref, watch } from "vue";
 import { setStringAdapter, registerAdapter } from "timered-counter";
-import DecimalJsNumberAdapter from "timered-counter/number-adapter/decimal-js";
+import DecimalJsNumberAdapter from "timered-counter/number-adapter/decimal-js.js";
 
 registerAdapter(DecimalJsNumberAdapter); // [!code ++]
 

@@ -157,7 +157,7 @@ npm install decimal.js --save
 然后在你的代码中引入：
 ```javascript
 import { setNumberAdapter, registerAdapter } from "timered-counter";
-import DecimalJsNumberAdapter from "timered-counter/number-adapter/decimal-js";
+import DecimalJsNumberAdapter from "timered-counter/number-adapter/decimal-js.js";
 
 registerAdapter(DecimalJsNumberAdapter); // 注册内置的 decimal.js 适配器
 setNumberAdapter('decimal.js'); // 设置使用的适配器
@@ -172,7 +172,7 @@ npm install grapheme-splitter --save
 然后在你的代码中引入：
 ```javascript
 import { setStringAdapter, registerAdapter } from "timered-counter";
-import GraphemeSplitterStringAdapter from "timered-counter/string-adapter/grapheme-splitter";
+import GraphemeSplitterStringAdapter from "timered-counter/string-adapter/grapheme-splitter.js";
 
 registerAdapter(GraphemeSplitterStringAdapter); // 注册内置的 grapheme-splitter 适配器
 setStringAdapter('grapheme-splitter'); // 设置使用的适配器

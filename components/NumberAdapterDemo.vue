@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch } from "vue";
 import {setNumberAdapter, registerAdapter} from "timered-counter";
-import GraphemeSplitterStringAdapter from "timered-counter/string-adapter/grapheme-splitter";
+import GraphemeSplitterStringAdapter from "timered-counter/string-adapter/grapheme-splitter.js";
 
 registerAdapter(GraphemeSplitterStringAdapter); // [!code ++]
 

@@ -2,7 +2,6 @@
 // #region js
 import { ref } from "vue";
 let userCount = ref(1000);
-const counter = document.getElementById('counter');
 setInterval(() => {
   userCount.value += Math.floor(Math.random() * 10);
 }, 1100);

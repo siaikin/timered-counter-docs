@@ -156,7 +156,7 @@ npm install decimal.js --save
 Then import it in your code:
 ```javascript
 import { setNumberAdapter, registerAdapter } from "timered-counter";
-import DecimalJsNumberAdapter from "timered-counter/number-adapter/decimal-js";
+import DecimalJsNumberAdapter from "timered-counter/number-adapter/decimal-js.js";
 
 registerAdapter(DecimalJsNumberAdapter); // Register adapter
 setNumberAdapter('decimal.js'); // Set the adapter to use
@@ -171,7 +171,7 @@ npm install grapheme-splitter --save
 Then import it in your code:
 ```javascript
 import { setStringAdapter, registerAdapter } from "timered-counter";
-import GraphemeSplitterStringAdapter from "timered-counter/string-adapter/grapheme-splitter";
+import GraphemeSplitterStringAdapter from "timered-counter/string-adapter/grapheme-splitter.js";
 
 registerAdapter(GraphemeSplitterStringAdapter); // Register adapter
 setStringAdapter('grapheme-splitter'); // Set the adapter to use
